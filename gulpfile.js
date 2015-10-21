@@ -80,7 +80,7 @@ var config = {
 }
 
 gulp.task('litmus-test', function () {
-    return gulp.src('dist/email.html')
+    return gulp.src('dist/service-email.html')
     .pipe(litmus(config))
     .pipe(gulp.dest('dist'));
 });
