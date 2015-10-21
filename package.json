@@ -21,6 +21,7 @@
     "gulp-inline-css": "^3.0.0",
     "gulp-inline-source": "^2.1.0",
     "gulp-litmus": "0.0.7",
+    "gulp-remove-html-comments": "^1.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.0.4"
   }

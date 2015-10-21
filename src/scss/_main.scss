@@ -1,0 +1,22 @@
+
+// lets finally get started on our email styles
+
+
+td{
+  font-family:serif;
+  color:#000001;
+  @include font-size(16px);
+}
+
+.full-width{
+  width:100%;
+}
+
+// padding mixin
+@mixin pad($num) {
+  padding:#{$num}px;
+  }
+
+.padding-40{
+  @include pad(40);
+}

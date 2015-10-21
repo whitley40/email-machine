@@ -7,8 +7,9 @@ rename = require('gulp-rename'),
 litmus = require('gulp-litmus'),
 imageop = require('gulp-image-optimization'),
 inlineCss = require('gulp-inline-css'),
-browsersync = require('browser-sync').create(),
 inlinesource = require('gulp-inline-source'),
+removeHtmlComments = require('gulp-remove-html-comments'),
+browsersync = require('browser-sync').create(),
 del = require('del');
 
 /* compiling the sass */
@@ -23,13 +24,14 @@ gulp.task('compileSass', function() {
 
 // lets inline the email
 
-gulp.task('inlineIt', function() {
-
-    //grab the css and pop it into the hed of the html
+gulp.task('inlineIt', ['compileSass'], function() {
+    //grab the css and pop it into the head of the html
     return gulp.src('src/**/*.html')
     .pipe(inlinesource())
     //now inline the css from the head, into the body 
     .pipe(inlineCss())
+    //remove all comments before adding to dist
+    .pipe(removeHtmlComments())
     .pipe(gulp.dest('dist'));
 });
 
@@ -86,14 +88,12 @@ gulp.task('litmus-test', function () {
 /* setting up a clean */
 
 gulp.task('clean', function(){
-    del('dist' , 'src/css');
+    del(['src/css', 'dist']);
 })
 
 // building your email 
 
-gulp.task("build", ['clean', "compileSass", "images", 'inlineIt','browserSync'], function() {
-    .pipe(gulp.dest('dist'));
-});
+gulp.task("build", ['clean', "compileSass", "images", 'inlineIt','browserSync']);
 
 /* gulp default */
 
