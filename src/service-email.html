@@ -1,42 +1,71 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!doctype html>
+<html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Message Subject or Title</title>
-  <link href="css/style.css" rel="stylesheet">
-  <!--[if gte mso 9]>
-    <style>
-    /* Target Outlook 2007 and 2010 */
-    </style>
-  <![endif]-->
-
-  <!-- Gmail/Hotmail image display fix 
-    <img class="image_fix" src="full path to image" alt="Your alt text" title="Your title text" width="x" height="x" />-->
-
-    <!-- Yahoo Link color fix updated: Simply bring your link styling inline. 
-    <a href="http://htmlemailboilerplate.com" target ="_blank" title="Styling Links" style="color: orange; text-decoration: none;">Coloring Links appropriately</a>-->
-
-    <!-- Working with telephone numbers (including sms prompts).  Use the "mobile" class to style appropriately in desktop clients
-    versus mobile clients.
-    <span class="mobile_link">123-456-7890</span> -->
-
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Service Email One</title>
+  <link href="css/body-style.css" rel="stylesheet">
+  <!-- inject-style src="src/css/head-style.css" -->
 </head>
-<body>
-<!-- Wrapper/Container Table: Use a wrapper table to control the width and the background color consistently of your email. Use this approach instead of setting attributes on the body tag. -->
-<table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0" id="backgroundTable">
-  <tr>
-    <td valign="top" align="center"> 
-    <!-- Content -->
-    <table class="full-width" cellpadding="0" cellspacing="0" border="0" align="center">
-      <tr>
-        <td class="padding-40" valign="top">This is now changed</td>
-      </tr>
-    </table>
-    <!-- End example table -->
-    </td>
-  </tr>
-</table>  
-<!-- End of wrapper table -->
+<body bgcolor="#232b2e" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+  <!-- PRE HEADER -->
+  <div class="preheader">
+    Welcome to SaleCycle
+  </div>
+  <!-- END OF PRE HEADER -->
+
+  <!-- Wrapper/Container Table: -->
+  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0" id="backgroundTable">
+    <tr>
+      <td bgcolor="#232b2e" align="center" valign="top">
+        <!-- edge wrapper -->
+        <table id="android" width="650" class="fluid" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+           <td align="center" valign="top">
+            <!-- ///////////////////////////////////////////////////// -->
+            <table width="600" class="fluid" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td valign="top" style="font-size:1px; line-height:0; mso-margin-top-alt:1px;">
+                  <img  class="blankgmail" src="http://images.salecycle.com/17516/2905/blank.gif" height="2" alt="">
+                </td>
+              </tr>
+              <!-- ************************ START OF EMAIL DESIGN ************************ -->
+              <tr>
+                <td align="center" style="color:#FFFFFF; padding:10px;">
+                  <a href="[[webview]]" target="_blank" style="color:#ffffff; text-decoration:none;">
+                    View in Your Browser</a>
+                  </td>
+                </tr>
+
+                <table class="roundme" width="600" height="200" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="600" align="center" >This is just a test</td>
+                  </tr>
+                </table>
+
+                <tr>
+                  <td align="center" style="color:#FFFFFF; padding:10px;">
+                    <a href="[[unsubscribe]]" target="_blank" style="color:#ffffff; text-decoration:none;">Unsubscribe</a>
+                  </td>
+                </tr>
+                <!-- ************************ END OF EMAIL DESIGN ************************ -->
+              </table>
+              <!-- //////////// -->
+            </td>
+          </tr>
+        </table>
+        <!-- / edge wrapper -->
+      </td>
+    </tr>
+    <!-- Gmail App Iphone Width Fix -->
+    <div style="display:none; white-space:nowrap; font:15px courier; color:#ffffff;">
+      - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    </div>
+    <!-- End Of Gmail App Iphone Width Fix -->
+  </table>
+  <!-- END OF Wrapper/Container Table: -->
 </body>
 </html>

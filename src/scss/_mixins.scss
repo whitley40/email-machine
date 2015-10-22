@@ -1,35 +1,4 @@
-//useful mixins
 
-//font face creation
-
-// @mixin font-face($fontfamily, $fontname){
-//   @font-face {
-//   font-family: '#{$fontfamily}';
-//     src: url('../fonts/#{$fontname}.eot');
-//     src: url('../fonts/.svg##{$fontfamily}') format('svg'),
-//           url('../fonts/#{$fontname}.eot?#iefix') format('embedded-opentype'),
-//          url('../fonts/#{$fontname}.woff') format('woff'),
-//          url('../fonts/#{$fontname}.ttf') format('truetype');
-//     font-weight: normal;
-//     font-style: normal; 
-//   }
-// }
-
-// @include font-face(blisslight, BlissPro-Light);
-// @include font-face(blissregular, BlissPro);
-// @include font-face(blissmedium, BlissPro-Medium);
-// @include font-face(blissbold, BlissPro-Bold);
-// @include font-face(blissheavy, BlissPro-Heavy);
-
-
-// $font-light: 'blisslight', sans-serif;
-// $font-regular: 'blissregular', sans-serif;
-// $font-medium: 'blissmedium', sans-serif;
-// $font-bold: 'blissbold', sans-serif;
-// $font-heavy: 'blissheavy', sans-serif;
-
-// rem size calculations -------------------------------------------------------
-//example usage -  @include font-size(14px) , spits out 14px/0.8rem
 
 @function calculateRem($size) {
   $remSize: $size / 16px;
@@ -41,17 +10,8 @@
   font-size: calculateRem($size);
 }
 
+// @include font-size(14px);
 
-// media query simplicity -------------------------------------------------------
-/* example usage below
-
-remember - mobile first!!
-
-@include bp-medium {
-
-} 
-
-*/
 
 @mixin bp-medium {
   @media only screen and (min-width: 600px) {
@@ -65,5 +25,9 @@ remember - mobile first!!
     @content;
   }
 }
+
+// @include bp-medium {
+
+// } 
 
 
