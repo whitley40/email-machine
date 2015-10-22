@@ -32,7 +32,8 @@ gulp.task('inlineIt', ['compileSass'], function() {
     .pipe(inlineCss())
     //remove all comments before adding to dist
     .pipe(removeHtmlComments())
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist'))
+    .pipe(browsersync.stream());
 });
 
 // image optimise and move
@@ -58,10 +59,10 @@ gulp.task('browserSync', function() {
         }
     });
 
-    gulp.watch(["src/**/*.html","src/scss/*.scss", 'src/**/*.png','src/**/*.jpg','src/**/*.gif','src/**/*.jpeg'], 
-    ['compileSass','inlineIt','images']).on('change', browsersync.reload);
+    gulp.watch(["src/**/*.html","src/scss/*.scss"], ['inlineIt']);
 
 });
+
 
 
 // adding in a litmus test
