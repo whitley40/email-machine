@@ -31,8 +31,15 @@
       table td { 
         border-collapse:collapse; box-sizing:border-box; 
       }
+      td.no-image{
+        font-size:1px; line-height:0; mso-margin-top-alt:1px;
+      }
 
       .yshortcuts a { border-bottom: none !important; }
 
       #backgroundTable {margin:0; padding:0; width:100% !important; line-height: 100% !important;}
 
+
+      .gmail-app-fix {
+        display:none; white-space:nowrap; font:15px courier; color:#ffffff;
+      }

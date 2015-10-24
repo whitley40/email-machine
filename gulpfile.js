@@ -9,6 +9,7 @@ imageop = require('gulp-image-optimization'),
 inlineCss = require('gulp-inline-css'),
 styleInject = require("gulp-style-inject"),
 browsersync = require('browser-sync').create(),
+debug = require('gulp-debug'),
 del = require('del');
 
 /* compiling the body style sass */
@@ -17,25 +18,14 @@ gulp.task('compileSass', function() {
     return gulp.src(['src/scss/body-style.scss','src/scss/head-style.scss'])
     .pipe(sass())
     .pipe(autoprefixer())
-    .pipe(rename(['body-style.css','head-style.scss']))
+    .pipe(rename(['body-style.css','head-style.css']))
     .pipe(gulp.dest('src/css'));
-});
-
-// lets inline the email
-
-gulp.task('inlineEmail', ['compileSass'], function() {
-    //get the html and inline the source files
-    return gulp.src('src/**/*.html')
-    .pipe(inlineCss())
-    .pipe(styleInject())
-    .pipe(gulp.dest('dist'))
-    .pipe(browsersync.stream());
 });
 
 // image optimise and move
 
-gulp.task('images', function(cb) {
-    gulp.src(['src/**/*.png','src/**/*.jpg','src/**/*.gif','src/**/*.jpeg'])
+gulp.task('imagesOpt', function(cb) {
+    gulp.src(['src/imgs/*.png','src/imgs/*.jpg','src/imgs/*.gif','src/imgs/*.jpeg'])
     .pipe(imageop({
         optimizationLevel: 5,
         progressive: true,
@@ -44,6 +34,17 @@ gulp.task('images', function(cb) {
     .pipe(gulp.dest('dist')).on('end', cb).on('error', cb);
 });
 
+
+// lets inline the email
+
+gulp.task('inlineEmail', ['compileSass', 'imagesOpt'], function() {
+    //get the html and inline the source files
+    return gulp.src('src/**/*.html')
+    .pipe(inlineCss())
+    .pipe(styleInject())
+    .pipe(gulp.dest('dist'))
+    .pipe(browsersync.stream());
+});
 
 /* run browsersync */
 
@@ -55,7 +56,7 @@ gulp.task('browserSync', function() {
         }
     });
 
-    gulp.watch(["src/**/*.html","src/scss/*.scss"], ['inlineEmail']);
+    gulp.watch(["src/**/*.html","src/scss/*.scss","src/imgs/*.*"], ['inlineEmail']);
 
 });
 
@@ -87,7 +88,7 @@ gulp.task('clean', function(){
 
 // building your email 
 
-gulp.task("build", ['clean', "images", 'inlineEmail','browserSync']);
+gulp.task("build", ['clean', 'inlineEmail','browserSync']);
 
 /* gulp default */
 
