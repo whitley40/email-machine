@@ -64,7 +64,7 @@ gulp.task('browserSync', function() {
 
 var config = {
     username: 'mark.whitley@salecycle.com',
-    password: 'lmUVAh7Qtex',
+    password: '',
     url: 'https://salecycle.litmus.com',
     applications: [
     'applemail6',
